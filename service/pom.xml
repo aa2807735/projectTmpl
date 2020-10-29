@@ -11,5 +11,13 @@
 
     <artifactId>java-fast-dev-service</artifactId>
 
+    <dependencies>
+        <!-- mybatis-plus依赖 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+
 
 </project>
