@@ -2,10 +2,12 @@ package com.project.name.service.auth;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.project.name.page.PageParam;
 import com.project.name.repository.auth.entity.AuthUser;
 import com.project.name.service.auth.dto.AuthUserDTO;
+import com.project.name.service.auth.dto.AuthUserListDTO;
+import com.project.name.service.page.dto.PageDTO;
 
-import java.util.List;
 
 public interface IAuthUserService  extends IService<AuthUser> {
 
@@ -22,5 +24,5 @@ public interface IAuthUserService  extends IService<AuthUser> {
      * 分页获取所有用户
      * @return
      */
-    List<AuthUserDTO> pageList();
+    PageDTO<AuthUserListDTO> pageList(PageParam<AuthUserListDTO> pageParam);
 }

@@ -6,7 +6,7 @@
         SELECT * FROM auth_user where user_id = #{userId}
     </select>
 
-    <select id="pageGetAllUser" resultType="com.project.name.repository.auth.entity.AuthUser">
+    <select id="pageGetAllUser" resultType="com.project.name.service.auth.dto.AuthUserListDTO">
         SELECT * FROM auth_user
     </select>
 </mapper>

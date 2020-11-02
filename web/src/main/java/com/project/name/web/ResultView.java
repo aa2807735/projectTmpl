@@ -30,8 +30,6 @@ public class ResultView<T> {
     }
 
 
-
-
     public static <T> ResultView<T> ok(T data){
         return new ResultView<T>(ErrorCode.SUCCESS_CODE,data);
     }

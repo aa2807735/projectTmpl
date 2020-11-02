@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.project.name.repository.auth.entity.AuthUser;
 import com.project.name.service.auth.dto.AuthUserDTO;
+import com.project.name.service.auth.dto.AuthUserListDTO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -24,7 +25,7 @@ public interface AuthUserMapper extends BaseMapper<AuthUser> {
      * @param page 分页
      * @return 结果
      */
-    IPage<AuthUser> pageGetAllUser(IPage<AuthUser> page);
+    IPage<AuthUserListDTO> pageGetAllUser(IPage<AuthUserListDTO> page, @Param("queryParams") AuthUserListDTO queryParams);
 
 
 }

@@ -26,16 +26,16 @@ public class JwtUtils {
      */
     public static final String TOKEN_PREFIX = "Bearer";
     /**
-     * 过期时间
+     * 过期时间  两个小时
      */
-    public static final long EXPIRE_TIME = 1000 * 24 * 60 * 60 * 7;
+    private static final long EXPIRE_TIME = 1000 * 60 * 60 * 2;
 
     /**
      * 密钥
      */
-    public static final String APP_SECRET_KEY = "cong_secret";
+    private static final String APP_SECRET_KEY = "cong_secret";
 
-    public static final String SUBJECT = "cong";
+    private static final String SUBJECT = "cong";
 
     /**
      * 生成JWT
@@ -110,12 +110,4 @@ public class JwtUtils {
         return claims.getExpiration().before(new Date());
     }
 
-    public static void main(String[] args) {
-        AuthUser authUser = new AuthUser();
-        authUser.setUserId(1L);
-        authUser.setUserName("WGB");
-        authUser.setUserPassword("wgb");
-        System.out.println(generateJsonWebToken(authUser));
-
-    }
 }
