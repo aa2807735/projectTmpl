@@ -27,9 +27,6 @@ public class AuthUserServiceImpl extends ServiceImpl<AuthUserMapper, AuthUser> i
 
     @Override
     public PageDTO<AuthUserListDTO> pageList(PageParam<AuthUserListDTO> pageParam) {
-        if (true){
-            throw new LogicException(ErrorCode.SERVER_BUSY_CODE);
-        }
         AuthUserListDTO queryParam = pageParam.getQueryParam();
         Page<AuthUserListDTO> page =  pageParam.getPage();
         authUserMapper.pageGetAllUser(page,queryParam);
