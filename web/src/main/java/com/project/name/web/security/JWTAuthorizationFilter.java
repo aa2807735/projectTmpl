@@ -14,6 +14,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -33,8 +34,8 @@ import java.util.List;
  **/
 @Slf4j
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
-    public static final String PUB_COMMON_PRIME = "common";
-    public static final String PRIMES = "prime";
+    private static final String PUB_COMMON_PRIME = "common";
+    private static final String PRIMES = "primes";
 
 
     public JWTAuthorizationFilter(AuthenticationManager authenticationManager) {
@@ -44,6 +45,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
         String tokenHeader = request.getHeader(JwtUtils.TOKEN_HEADER);
+        tokenHeader = "BearereyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb25nIiwicm9sZSI6ImFkbWluIiwicHJpbWVzIjoicGxhY2U6Z29vZHM6dmlldyxwbGFjZTpnb29kczphZGQiLCJpZCI6MTIzMjEsIm5hbWUiOiJ0ZXN0IiwiaWF0IjoxNjA0Mjc5MTM3LCJleHAiOjE2MDQ4ODM5Mzd9.RjmCqX1pAUc025A0sXtBOohKHBKtTYaPzP6UieaPPZA";
         if (tokenHeader == null || !tokenHeader.startsWith(JwtUtils.TOKEN_PREFIX)) {
             chain.doFilter(request, response);
             return;

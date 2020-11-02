@@ -1,4 +1,4 @@
-package com.project.name.repository.goods.entity.auth;
+package com.project.name.repository.auth.entity;
 
 import lombok.Data;
 import lombok.ToString;

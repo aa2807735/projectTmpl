@@ -25,7 +25,7 @@ public class CustomerAccessDeniedHandler implements AccessDeniedHandler {
             response.sendError(HttpServletResponse.SC_FORBIDDEN);
         } else if (!response.isCommitted()) {
             //已经返回状态码
-            response.sendError(HttpServletResponse.SC_FORBIDDEN, accessDeniedException.getMessage());
+            response.sendError(HttpServletResponse.SC_FORBIDDEN, "您没有该权限访问！");
         }
     }
 }

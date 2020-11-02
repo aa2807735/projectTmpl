@@ -1,13 +1,11 @@
 package com.project.name.utils;
 
-import com.project.name.repository.goods.entity.auth.AuthUser;
+import com.project.name.repository.auth.entity.AuthUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * ClassName: JwtUtils <br/>
@@ -110,5 +108,14 @@ public class JwtUtils {
     public static boolean isExpiration(String token) {
         Claims claims = Jwts.parser().setSigningKey(APP_SECRET_KEY).parseClaimsJws(token).getBody();
         return claims.getExpiration().before(new Date());
+    }
+
+    public static void main(String[] args) {
+
+        AuthUser authUser = new AuthUser();
+        authUser.setUserId(12321L);
+        authUser.setUserName("test");
+        authUser.setUserPassword("wgbtest");
+        System.out.println(generateJsonWebToken(authUser));
     }
 }
