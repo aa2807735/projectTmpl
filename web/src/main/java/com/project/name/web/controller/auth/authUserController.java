@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
+
 
 @RestController
 @RequestMapping("api/auth/authUser")
 public class authUserController {
-
 
     @Autowired
     private IAuthUserService authUserService;
@@ -26,9 +27,13 @@ public class authUserController {
     @GetMapping(value = "/{userId}")
     @PreAuthorize("hasAuthority('auth:authUser:view')")
     public ResultView<AuthUserDTO> getUserById(@PathVariable Long userId){
-        AuthUser authUser = authUserService.selectById(userId);
-        AuthUserDTO authUserDTO = BeanCopierUtils.copy(authUser, AuthUserDTO.class);
-        return ResultView.ok(authUserDTO);
+        return ResultView.ok( authUserService.getById(userId));
+    }
+
+    @GetMapping(value = "page")
+    @PreAuthorize("hasAuthority('auth:authUser:view')")
+    public ResultView<List<AuthUserDTO>>  pageList(){
+        return ResultView.ok(authUserService.pageList());
     }
 
 }

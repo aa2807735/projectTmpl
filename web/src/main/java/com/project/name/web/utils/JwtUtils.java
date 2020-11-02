@@ -1,4 +1,4 @@
-package com.project.name.utils;
+package com.project.name.web.utils;
 
 import com.project.name.repository.auth.entity.AuthUser;
 import io.jsonwebtoken.Claims;
@@ -52,7 +52,7 @@ public class JwtUtils {
                 .builder()
                 .setSubject(SUBJECT)   //设置主题
                 .claim("role", "admin")    //设置角色
-                .claim("primes", "place:goods:view,place:goods:add") //设置权限
+                .claim("primes", "place:goods:view,place:goods:add,auth:authUser:view") //设置权限
                 .claim("id", authUser.getUserId())  //公开信息
                 .claim("name", authUser.getUserName()) //公开信息
                 .setIssuedAt(new Date(System.currentTimeMillis())) //设置签发时间
@@ -111,11 +111,11 @@ public class JwtUtils {
     }
 
     public static void main(String[] args) {
-
         AuthUser authUser = new AuthUser();
-        authUser.setUserId(12321L);
-        authUser.setUserName("test");
-        authUser.setUserPassword("wgbtest");
+        authUser.setUserId(1L);
+        authUser.setUserName("WGB");
+        authUser.setUserPassword("wgb");
         System.out.println(generateJsonWebToken(authUser));
+
     }
 }

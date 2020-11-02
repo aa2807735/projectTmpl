@@ -36,6 +36,7 @@
         <mybatis-plus.spring.boot.starter.version>2.3</mybatis-plus.spring.boot.starter.version>
         <java.fast.dev.service.version>1.0.0</java.fast.dev.service.version>
         <java.fast.dev.common.version>1.0.0</java.fast.dev.common.version>
+        <mybatis.plus.boot.starter.version>3.1.1</mybatis.plus.boot.starter.version>
     </properties>
 
     <dependencyManagement>
@@ -64,11 +65,18 @@
                 <artifactId>jjwt</artifactId>
                 <version>${jwt.version}</version>
             </dependency>
-            <!--Mybatis-plus -->
+            <!--Mybatis-plus
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.spring.boot.starter.version}</version>
+            </dependency>
+            -->
+            <!-- 这是mybatis-plus依赖 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.boot.starter.version}</version>
             </dependency>
             <!--Project Service 层 -->
             <dependency>
@@ -96,6 +104,10 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
         </dependency>
     </dependencies>
 

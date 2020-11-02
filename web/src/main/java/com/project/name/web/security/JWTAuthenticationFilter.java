@@ -1,6 +1,8 @@
 package com.project.name.web.security;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import sun.rmi.runtime.Log;
 
 /**
  * ClassName: JWTAuthenticationFilter <br/>
@@ -13,5 +15,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  * *successfulAuthentication：用户成功登录后，这个方法会被调用，我们在这个方法里生成token并返回。
  * @author Lenovo
  **/
+@Slf4j
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 }

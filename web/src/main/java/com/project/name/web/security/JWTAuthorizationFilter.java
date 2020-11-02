@@ -1,6 +1,6 @@
 package com.project.name.web.security;
 
-import com.project.name.utils.JwtUtils;
+import com.project.name.web.utils.JwtUtils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.JwtParser;
@@ -45,7 +45,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
         String tokenHeader = request.getHeader(JwtUtils.TOKEN_HEADER);
-        tokenHeader = "BearereyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb25nIiwicm9sZSI6ImFkbWluIiwicHJpbWVzIjoicGxhY2U6Z29vZHM6dmlldyxwbGFjZTpnb29kczphZGQiLCJpZCI6MTIzMjEsIm5hbWUiOiJ0ZXN0IiwiaWF0IjoxNjA0Mjc5MTM3LCJleHAiOjE2MDQ4ODM5Mzd9.RjmCqX1pAUc025A0sXtBOohKHBKtTYaPzP6UieaPPZA";
+        tokenHeader = "BearereyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb25nIiwicm9sZSI6ImFkbWluIiwicHJpbWVzIjoicGxhY2U6Z29vZHM6dmlldyxwbGFjZTpnb29kczphZGQsYXV0aDphdXRoVXNlcjp2aWV3IiwiaWQiOjEsIm5hbWUiOiJXR0IiLCJpYXQiOjE2MDQyOTc2MjUsImV4cCI6MTYwNDkwMjQyNX0.7SRnLkbXHZJYCyPyAUQI1IQ1zOpYV4RrkX385DbRnI8";
         if (tokenHeader == null || !tokenHeader.startsWith(JwtUtils.TOKEN_PREFIX)) {
             chain.doFilter(request, response);
             return;

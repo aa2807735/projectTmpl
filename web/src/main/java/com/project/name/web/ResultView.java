@@ -17,6 +17,12 @@ public class ResultView<T> {
         this.data = data;
     }
 
+
+    public ResultView(Integer code,String message){
+        this.code =code;
+        this.message=message;
+    }
+
     public ResultView(ErrorCode errorCode,T data){
         this.code = errorCode.getCode();
         this.message = errorCode.getMessage();
@@ -24,9 +30,16 @@ public class ResultView<T> {
     }
 
 
+
+
     public static <T> ResultView<T> ok(T data){
         return new ResultView<T>(ErrorCode.SUCCESS_CODE,data);
     }
+
+    public static <T> ResultView<T> ok(ErrorCode errorCode){
+        return new ResultView<T>(errorCode.getCode(),errorCode.getMessage());
+    }
+
 
     public static <T> ResultView<T> fail(T data){
         return new ResultView<>(ErrorCode.FAIL_CODE,data);

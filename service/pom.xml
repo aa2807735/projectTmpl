@@ -17,6 +17,10 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.yifu</groupId>
+            <artifactId>java-fast-dev-common</artifactId>
+        </dependency>
     </dependencies>
 
 

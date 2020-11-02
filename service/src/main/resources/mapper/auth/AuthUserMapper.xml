@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.name.repository.auth.mapper.AuthUserMapper">
+
+    <select id="getById" resultType="com.project.name.service.auth.dto.AuthUserDTO">
+        SELECT * FROM auth_user where user_id = #{userId}
+    </select>
+
+    <select id="pageGetAllUser" resultType="com.project.name.repository.auth.entity.AuthUser">
+        SELECT * FROM auth_user
+    </select>
+</mapper>

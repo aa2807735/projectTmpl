@@ -2,6 +2,7 @@ package com.project.name.repository.auth.entity;
 
 import lombok.Data;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDateTime;
 
@@ -14,7 +15,9 @@ import java.time.LocalDateTime;
  **/
 @Data
 @ToString
+@Slf4j
 public class AuthUser {
+
     private Long userId;
     private String userName;
     private String userPassword;

@@ -11,8 +11,16 @@ public enum ErrorCode {
     /**
      * 请求失败
      */
-    FAIL_CODE(1999,"请求失败")
+    FAIL_CODE(1900,"请求失败"),
 
+    /**
+     * Bean拷贝失败
+     */
+    BEAN_COPY_CODE(1101,"Bean拷贝错误"),
+    /**
+     * 服务器异常，服务器繁忙
+     */
+    SERVER_BUSY_CODE(1999,"服务器繁忙，请稍后再试")
     ;
     private Integer code;
     private String message;
