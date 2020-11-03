@@ -28,4 +28,5 @@ public interface AuthUserMapper extends BaseMapper<AuthUser> {
     IPage<AuthUserListDTO> pageGetAllUser(IPage<AuthUserListDTO> page, @Param("queryParams") AuthUserListDTO queryParams);
 
 
+
 }

@@ -20,7 +20,11 @@ public enum ErrorCode {
     /**
      * 服务器异常，服务器繁忙
      */
-    SERVER_BUSY_CODE(1999,"服务器繁忙，请稍后再试")
+    SERVER_BUSY_CODE(1999,"服务器繁忙，请稍后再试"),
+    /**
+     * 账号密码输入有误，请重新输入
+     */
+    LOGIN_INFO_ERROR(1899,"账号密码输入有误，请重新输入")
     ;
     private Integer code;
     private String message;

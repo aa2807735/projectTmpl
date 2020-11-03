@@ -1,6 +1,5 @@
-package com.project.name.web.utils;
+package com.project.name.utils;
 
-import com.project.name.repository.auth.entity.AuthUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -43,7 +42,7 @@ public class JwtUtils {
      * @param authUser 用户实体
      * @return JWT值
      */
-    public static String generateJsonWebToken(AuthUser authUser) {
+    public static String generateJsonWebToken(AuthUserToken authUser) {
         if (authUser.getUserId() == null || authUser.getUserName() == null) {
             return null;
         }

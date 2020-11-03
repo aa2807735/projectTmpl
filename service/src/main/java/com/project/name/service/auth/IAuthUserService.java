@@ -25,4 +25,12 @@ public interface IAuthUserService  extends IService<AuthUser> {
      * @return
      */
     PageDTO<AuthUserListDTO> pageList(PageParam<AuthUserListDTO> pageParam);
+
+
+    /**
+     *
+     * @param authUser
+     * @return
+     */
+    String login(AuthUser authUser);
 }
