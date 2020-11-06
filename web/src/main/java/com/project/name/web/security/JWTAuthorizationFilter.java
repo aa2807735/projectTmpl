@@ -71,9 +71,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
             authorities.add(new SimpleGrantedAuthority(PUB_COMMON_PRIME));
             //TODO: 需要重新签发TOKEN
             claims.get("id");
-            claims.get("")
 
-            JwtUtils.generateJsonWebToken()
             return new UsernamePasswordAuthenticationToken(token, null, authorities);
         } catch (Exception e) {
             log.info("【鉴权中心】 JWT的token校验失败，请检查，{}", e.getMessage());

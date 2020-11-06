@@ -12,7 +12,6 @@ import com.project.name.service.auth.IAuthUserService;
 import com.project.name.service.auth.dto.AuthUserDTO;
 import com.project.name.service.auth.dto.AuthUserListDTO;
 import com.project.name.service.page.dto.PageDTO;
-import com.project.name.utils.JwtUtils;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
@@ -47,11 +46,8 @@ public class AuthUserServiceImpl extends ServiceImpl<AuthUserMapper, AuthUser> i
         if (getAuthUser == null){
             throw new LogicException(ErrorCode.LOGIN_INFO_ERROR);
         }
-
-        JwtUtils.generateJsonWebToken();
-
-
-        return false;
+//        JwtUtils.generateJsonWebToken();
+        return "token";
     }
 
 

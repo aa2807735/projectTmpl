@@ -6,6 +6,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -36,7 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/**/*.js",
             "/**/*.jpg",
             "/**/*.png",
-            "/**/*.gif"
+            "/**/*.gif",
+            "/swagger-ui.html"
     };
 
     /**
@@ -85,7 +87,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers(HttpMethod.GET, STATIC_PATH).permitAll()
                 .antMatchers(AUTH_WHILE).permitAll()
+
+
                 //鉴权
                 .anyRequest().authenticated();
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        //allow Swagger URL to be accessed without authentication
+        web.ignoring().antMatchers("/v2/api-docs",//swagger api json
+                "/swagger-resources/configuration/ui",//用来获取支持的动作
+                "/swagger-resources",//用来获取api-docs的URI
+                "/swagger-resources/configuration/security",//安全选项
+                "/swagger-ui.html");
     }
 }

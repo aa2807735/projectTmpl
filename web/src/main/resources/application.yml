@@ -15,6 +15,11 @@ spring:
       charset: UTF-8
       force: true
       enabled: true
+#  security:
+#
+#    user:
+#      name: admin
+#      password: admin
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true

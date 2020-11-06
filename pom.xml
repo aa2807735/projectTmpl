@@ -37,6 +37,7 @@
         <java.fast.dev.service.version>1.0.0</java.fast.dev.service.version>
         <java.fast.dev.common.version>1.0.0</java.fast.dev.common.version>
         <mybatis.plus.boot.starter.version>3.1.1</mybatis.plus.boot.starter.version>
+        <swagger.version>2.9.2</swagger.version>
     </properties>
 
     <dependencyManagement>
@@ -96,6 +97,16 @@
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.driver.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -109,9 +120,15 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
     </dependencies>
-
-
     <build>
         <plugins>
             <!-- springboot 和maven支持打包成jar包 -->
